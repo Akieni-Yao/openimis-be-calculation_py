@@ -1,5 +1,6 @@
 import json
 
+from decimal import Decimal
 from .apps import AbsCalculationRule
 from .config import CLASS_RULE_PARAM_VALIDATION, \
     DESCRIPTION_CONTRIBUTION_VALUATION, FROM_TO
@@ -102,20 +103,23 @@ class ContributionValuationRule(AbsCalculationRule):
             if phi_params:
                 phi_params = phi_params["calculation_rule"] if "calculation_rule" in phi_params else None
             if cp_params is not None and "rate" in cp_params:
-                rate = float(cp_params["rate"])
+                rate = Decimal(cp_params["rate"])
                 if cd_params:
                     if "income" in cd_params:
-                        income = float(cd_params["income"])
+                        income = Decimal(cd_params["income"])
                     elif "income" in phi_params:
-                        income = float(phi_params["income"])
+                        income = Decimal(phi_params["income"])
                     else:
                         return False
                 elif "income" in phi_params:
-                    income = float(phi_params["income"])
+                    income = Decimal(phi_params["income"])
                 else:
                     return False
-                value = (float(income) * (rate / 100) *
-                         (instance.contribution_plan.periodicity if instance.contribution_plan.periodicity else 1))
+
+                value = (income * (rate / Decimal("100.0")) *
+                         (Decimal(
+                             instance.contribution_plan.periodicity) if instance.contribution_plan.periodicity else Decimal(
+                             "1.0")))
                 return value
             else:
                 return False
