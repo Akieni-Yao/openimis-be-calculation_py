@@ -102,7 +102,7 @@ class ContributionValuationRule(AbsCalculationRule):
             if phi_params:
                 phi_params = phi_params["calculation_rule"] if "calculation_rule" in phi_params else None
             if cp_params is not None and "rate" in cp_params:
-                rate = int(cp_params["rate"])
+                rate = float(cp_params["rate"])
                 if cd_params:
                     if "income" in cd_params:
                         income = float(cd_params["income"])
