@@ -114,7 +114,8 @@ class ContributionValuationRule(AbsCalculationRule):
                     income = float(phi_params["income"])
                 else:
                     return False
-                value = float(income) * (rate / 100)
+                value = (float(income) * (rate / 100) *
+                         (instance.contribution_plan.periodicity if instance.contribution_plan.periodicity else 1))
                 return value
             else:
                 return False
