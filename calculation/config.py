@@ -35,6 +35,38 @@ CLASS_RULE_PARAM_VALIDATION = [
                 "relevance": "True",
                 "default": "False"
             },
+            {
+                "type": "number",
+                "name": "employeeContribution",
+                "label": {
+                    "en": "Employee Contribution",
+                    "fr": "Employee Contribution"
+                },
+                "rights": {
+                    "read": "151201",
+                    "write": "151202",
+                    "update": "151203",
+                    "replace": "151206",
+                },
+                "relevance": "True",
+                "default": "2.5"
+            },
+    	    {
+                "type": "number",
+                "name": "employerContribution",
+                "label": {
+                    "en": "Employer Contribution",
+                    "fr": "Employer Contribution"
+                },
+                "rights": {
+                    "read": "151201",
+                    "write": "151202",
+                    "update": "151203",
+                    "replace": "151206",
+                },
+                "relevance": "True",
+                "default": "2.5"
+           }
         ],
     },
     {
