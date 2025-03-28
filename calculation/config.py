@@ -3,7 +3,39 @@ CLASS_RULE_PARAM_VALIDATION = [
         "class": "ContributionPlan",
         "parameters": [
             {
-                "type": "select",
+                "type": "number",
+                "name": "employerContribution",
+                "label": {
+                    "en": "Employer Contribution",
+                    "fr": "Patronale Contribution"
+                },
+                "rights": {
+                    "read": "151201",
+                    "write": "151202",
+                    "update": "151203",
+                    "replace": "151206",
+                },
+                "relevance": "True",
+                "default": "2.5"
+            },
+            {
+                "type": "number",
+                "name": "employeeContribution",
+                "label": {
+                    "en": "Employee Contribution",
+                    "fr": "Salariale Contribution"
+                },
+                "rights": {
+                    "read": "151201",
+                    "write": "151202",
+                    "update": "151203",
+                    "replace": "151206",
+                },
+                "relevance": "True",
+                "default": "2.5"
+            },
+            {
+                "type": "number",
                 "name": "rate",
                 "label": {
                     "en": "Percentage of income",
@@ -17,29 +49,6 @@ CLASS_RULE_PARAM_VALIDATION = [
                 },
                 'relevance': "True",
                 'condition': "INPUT>1",
-                'optionSet': [
-                    {
-                        "value": "5",
-                        "label": {
-                            "en": "5%",
-                            "fr": "5%"
-                        }
-                    },
-                    {
-                        "value": "10",
-                        "label": {
-                            "en": "10%",
-                            "fr": "10%"
-                        }
-                    },
-                    {
-                        "value": "15",
-                        "label": {
-                            "en": "15%",
-                            "fr": "15%"
-                        }
-                    },
-                ],
                 "default": "5"
             },
             {
@@ -57,7 +66,7 @@ CLASS_RULE_PARAM_VALIDATION = [
                 },
                 "relevance": "True",
                 "default": "False"
-            },
+            }
         ],
     },
     {
